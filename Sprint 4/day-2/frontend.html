@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="common.css">
+</head>
+
+<body>
+    <div id="container2">
+
+    </div>
+</body>
+
+</html>
+
+
+<script>
+    var getData = JSON.parse(localStorage.getItem("totalData"));
+    console.log("=================================");
+    console.log(getData);
+    // For Each not working 
+    // getData.forEach(function (ele){
+
+    // });
+
+    // used another method to put data 
+    for (var i = 0; i < getData.length; i++) {
+        var divv = document.createElement("div");
+        var photo = document.createElement("img");
+        photo.setAttribute("src", getData[i].image);
+        var hh1 = document.createElement("h1");
+        hh1.innerText = getData[i].name;
+        var pp1 = document.createElement("p");
+        pp1.innerText = getData[i].role
+        var ad = document.createElement("img");
+        ad.setAttribute("src", getData[i].logo);
+
+       
+
+
+        divv.append(photo,hh1,pp1,ad);
+        // divv.append(photo);
+        document.querySelector("#container2").append(divv);
+    }
+</script>

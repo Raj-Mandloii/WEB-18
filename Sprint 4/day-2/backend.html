@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="common.css">
+</head>
+
+<body>
+    <div id="container">
+        <div><a href="backend.html">Back End</a></div>
+        <div><a href="frontend.html">Front End</a></div>
+    </div>
+    <form id="parent" >
+        <h2>Enter Name</h2>
+        <input id="nam" type="text" placeholder="Enter Name">
+        <h2>Enter Image URL</h2>
+        <input id="image" type="text" placeholder="Enter Image URL">
+        <h2>Enter Company Logo</h2>
+        <input id="logo" type="text" placeholder="Enter Company Logo">
+        <h2>Role</h2>
+        <input id="role" type="text" placeholder="Role">
+        <br>
+        <br>
+
+        <input type="submit">
+    </form>
+</body>
+
+</html>
+
+<script>
+    document.getElementById("parent").addEventListener("submit", sub);
+
+
+    // var arr = JSON.parse(localStorage.getItem("totalData"))||[];
+   var arr =  JSON.parse(localStorage.getItem("totalData"))||[]
+    // var arr = [];
+    function sub() {
+        event.preventDefault();
+        var data = {
+            name: parent.nam.value,
+            image: parent.image.value,
+            logo: parent.logo.value,
+            role: parent.role.value,
+        }
+
+        arr.push(data);
+        localStorage.setItem("totalData",JSON.stringify(arr));
+        console.log(arr);
+    }
+</script>
