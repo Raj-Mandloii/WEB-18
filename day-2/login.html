@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="common.css">
+</head>
+<body>
+    <div>
+        <img src="https://sso.masaischool.com/brand_dark.svg" alt="Masai Logo">
+    </div>
+    <div id="container">
+        <h3>Sign Up</h3>
+        <!-- <h5>Full name</h5>
+        <div id="textfield">
+            <input id="naam" type="text" placeholder="Enter Your Name">
+        </div> -->
+        <h5>Email</h5>
+        <div id="textfield">
+            <input id="mail" type="text" placeholder="Enter  email">
+        </div>
+        <h5>Password</h5>
+        <div id="textfield">
+            <input id="password" type="text" placeholder="Enter password">
+        </div>
+        <div id="button">
+            Log In
+            <!-- <a href="login.html">SIGN UP</a> -->
+        </div>
+    </div>
+</body>
+</html>
+
+<script>
+
+    document.getElementById("button").addEventListener("click",login);
+    
+    var getData = JSON.parse(localStorage.getItem("totalData"));
+    console.log("GET DATA   "+ getData[0].mail);
+    console.log("GET DATA   "+ getData[0].password);
+    
+    var btn = document.getElementById("button");
+    function login(){
+        var mail = document.getElementById("mail").value;
+
+        var pass = document.getElementById("password").value;
+            console.log("mail "+mail);
+             console.log("PASSWORD "+pass);
+       
+        if(getData[0].mail == mail && getData[0].password == pass){
+            alert("login successful");
+            console.log('================= MATCHED');
+        } else {
+            alert("Email or Password incorrect");
+            console.log('================= NOT  MATCHED ===================');
+
+        }
+    }
+</script>

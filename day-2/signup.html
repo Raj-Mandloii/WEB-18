@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="common.css">
+</head>
+
+<style>
+   
+</style>
+
+<body>
+    <div>
+        <img src="https://sso.masaischool.com/brand_dark.svg" alt="Masai Logo">
+    </div>
+    <div id="container">
+        <h3>Sign Up</h3>
+        <h5>Full name</h5>
+        <div id="textfield">
+            <input id="naam" type="text" placeholder="Enter Your Name">
+        </div>
+        <h5>Email</h5>
+        <div id="textfield">
+            <input id="mail" type="text" placeholder="Enter  email">
+        </div>
+        <h5>Password</h5>
+        <div id="textfield">
+            <input id="password" type="text" placeholder="Enter password">
+        </div>
+        <div id="button">
+            SIGN UP
+            <!-- <a href="login.html">SIGN UP</a> -->
+        </div>
+    </div>
+</body>
+
+</html>
+<script>
+    document.querySelector('#button').addEventListener("click", add);
+
+
+    // var arr =  JSON.parse(localStorage.getItem("totalData"))||[]
+    var arr = []
+    function add() {
+        console.log('------------------------------');
+        var nam = document.getElementById("naam").value;
+        var mail = document.getElementById("mail").value;
+        var pass = document.getElementById("password").value;
+        
+        if(nam == ""){
+            alert("Name field cannot be empty");
+        } else if(mail == ""){
+            alert("Email field cannot be empty");
+        } else if (pass == ""){
+            alert("Password field cannot be empty");
+        } else {
+            window.location.href="login.html";
+        }
+        
+        var data = {
+            nam: nam,
+            mail: mail,
+            password: pass,
+        }
+            arr.push(data);
+
+            localStorage.setItem("totalData",JSON.stringify(arr));
+            console.log(arr);
+    }
+</script>
