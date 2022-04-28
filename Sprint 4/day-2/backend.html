@@ -47,9 +47,13 @@
             logo: parent.logo.value,
             role: parent.role.value,
         }
-
+        if(data.name == "" || data.image == "" || data.logo == ""||data.role == ""){
+            alert("Please fill the form correctly.");
+        } else {
         arr.push(data);
         localStorage.setItem("totalData",JSON.stringify(arr));
         console.log(arr);
+        }
+        
     }
 </script>
